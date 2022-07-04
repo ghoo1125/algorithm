@@ -1,8 +1,12 @@
 import math
 def gcd(a, b):
-    if b == 0:
-        return a
-    return gcd(b, a % b)
+    # if b == 0:
+    #     return a
+    # return gcd(b, a % b)
+    while b:
+        a, b = b, a % b
+    return a
+
 
 a = 18
 b = 36

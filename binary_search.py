@@ -26,6 +26,3 @@ i = binary_search_bisect(a, x)
 print(i)
 i = binary_search(a, x)
 print(i)
-
-b = [[1, 3], [2, 4], [3, 2], [4, 6]]
-print(bisect(b, [1, 2]))
