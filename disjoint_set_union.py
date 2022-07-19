@@ -5,6 +5,7 @@ from typing import List
 
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
+        # union and find have time complexity O(1)
         class DSU:
             def __init__(self, n): self.p = list(range(n))
             def union(self, x, y): self.p[self.find(x)] = self.find(y)
@@ -14,9 +15,10 @@ class Solution:
         dsu, res, groups = DSU(len(s)), [], defaultdict(list)
         for x,y in pairs: 
             dsu.union(x,y)
-        
+
         for i in range(len(s)): 
             groups[dsu.find(i)].append(s[i])
+        print(dsu.p)
         for group_id in groups.keys(): 
             groups[group_id].sort(reverse=True)
         for i in range(len(s)): 

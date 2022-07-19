@@ -1,5 +1,7 @@
 from bisect import bisect_left, bisect
 
+# Search a value in ordered list with time complexity O(logn)
+
 def binary_search(sorted_arr, target):
     lo, hi = 0, len(sorted_arr) - 1
     while lo <= hi:

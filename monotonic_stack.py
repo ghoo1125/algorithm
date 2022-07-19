@@ -1,4 +1,4 @@
-# Find the latest greater/less than value from the left/right (4 combinations)
+# Find the latest greater/less (and equal) than value to the left/right (4 combinations) with time complexity O(n)
 
 if __name__ == '__main__':
     nums = [4, 3, 1, 8, 4, 3, 2, 9, 0, 5, 3]

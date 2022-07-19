@@ -9,7 +9,7 @@ def partition(arr, l, r):
         arr[i], arr[r] = arr[r], arr[i]
         return i
 
-# return ksmallest val
+# Find ksmallest val in a list with time complexity O(n) in average
 def quick_select(arr, l, r, k):
     if k > 0 and (k <= r - l + 1):
         index = partition(arr, l, r)
