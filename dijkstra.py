@@ -1,20 +1,22 @@
-from typing import List
-from collections import defaultdict
 import heapq
+from collections import defaultdict
+from typing import List
+
 
 # leetcode 1514
 # dijkstra to find shortest path in weighted graph with priority queue
 class Solution:
     def maxProbability(self, n: int, edges: List[List[int]], succProb: List[float], start: int, end: int) -> float:
+        # init to infinite for normal distance case
         m, graph, p = len(edges), defaultdict(list), [0] * n
-        
+
         for i in range(m):
             n1, n2 = edges[i]
             graph[n1].append((n2, i))
             graph[n2].append((n1, i))
         print(graph, succProb)
 
-        p[start] = 1.0
+        p[start] = 1.0  # init to 0 for normal distance case
         q = [(-p[start], start)]
         while q:
             prob, cur = heapq.heappop(q)
@@ -25,12 +27,13 @@ class Solution:
                     p[nb] = -prob * succProb[idx]
                     heapq.heappush(q, (-p[nb], nb))
         return 0
-        
+
+
 if __name__ == '__main__':
     sol = Solution()
     n = 3
-    edges = [[0,1],[1,2],[0,2]]
-    succProb = [0.5,0.5,0.2]
+    edges = [[0, 1], [1, 2], [0, 2]]
+    succProb = [0.5, 0.5, 0.2]
     start = 0
     end = 2
     print(sol.maxProbability(n, edges, succProb, start, end))
