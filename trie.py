@@ -51,7 +51,7 @@ def find_prefix(root, prefix: str) -> Tuple[bool, int]:
     node = root
     # If the root node has no children, then return False.
     # Because it means we are trying to search in an empty trie
-    if not root.children:
+    if not root.children or not prefix:
         return False, 0
     for char in prefix:
         char_not_found = True
@@ -89,8 +89,9 @@ if __name__ == "__main__":
             q.append((c, l+1))
     print("")
 
-    print(find_prefix(root, 'hac'))
-    print(find_prefix(root, 'hack'))
-    print(find_prefix(root, 'hackathon'))
-    print(find_prefix(root, 'ha'))
-    print(find_prefix(root, 'hammer'))
+    # print(find_prefix(root, 'hac'))
+    # print(find_prefix(root, 'hack'))
+    # print(find_prefix(root, 'hackathon'))
+    # print(find_prefix(root, 'ha'))
+    # print(find_prefix(root, 'hammer'))
+    print(find_prefix(root, ''))
